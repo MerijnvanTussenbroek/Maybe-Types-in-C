@@ -20,7 +20,7 @@ maybe createMaybe(void* data)
 
 int isMaybeFilled(maybe input)
 {
-	return input.isFilled == 0;
+	return input.isFilled == 1;
 }
 
 void* getMaybeData(maybe input, void* backup)
@@ -38,6 +38,9 @@ void* getMaybeData(maybe input, void* backup)
 maybe changeMaybeData(maybe input, void* newData)
 {
 	input.data = newData;
+
+	if(newData != 0)
+		input.isFilled = 1;
 
 	return input;
 }
